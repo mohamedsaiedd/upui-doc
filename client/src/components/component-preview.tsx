@@ -19,29 +19,39 @@ export default function ComponentPreview({ title, code }: ComponentPreviewProps)
     toast({
       title: "Copied!",
       description: "Code copied to clipboard",
+      duration: 2000,
     });
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <Card className="overflow-hidden">
-      <div className="p-4 border-b bg-muted flex items-center justify-between">
-        <h3 className="font-medium">{title}</h3>
+    <Card className="overflow-hidden border-2">
+      <div className="flex items-center justify-between border-b bg-muted/40 px-4 py-3">
+        <div className="font-mono text-sm text-muted-foreground">
+          {title}
+        </div>
         <Button
           variant="ghost"
-          size="sm"
+          size="icon"
           onClick={copyCode}
-          className="h-8 px-2"
+          className="h-6 w-6"
         >
           <Copy className="h-4 w-4" />
         </Button>
       </div>
-      <div className="p-4">
+      <div className="p-6 flex min-h-[120px] w-full items-center justify-center bg-background">
         {/* Component preview would go here */}
+        <div className="text-sm text-muted-foreground">
+          Preview not available in documentation
+        </div>
       </div>
-      <pre className="p-4 bg-muted border-t overflow-x-auto">
-        <code>{code}</code>
-      </pre>
+      <div className="relative">
+        <pre className="overflow-x-auto border-t bg-muted py-4 px-6">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+            {code}
+          </code>
+        </pre>
+      </div>
     </Card>
   );
 }
