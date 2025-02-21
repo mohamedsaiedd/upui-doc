@@ -33,7 +33,7 @@ export default function Components() {
               .filter(c => c.category === category)
               .map(component => (
                 <Link key={component.id} href={`/components/${component.name.toLowerCase()}`}>
-                  <Card className="cursor-pointer hover:border-primary transition-colors">
+                  <Card className="cursor-pointer hover:border-blue-500  transition-colors">
                     <CardHeader>
                       <CardTitle>{component.name}</CardTitle>
                       <p className="text-sm text-muted-foreground">

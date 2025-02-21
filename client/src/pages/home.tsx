@@ -5,15 +5,15 @@ export default function Home() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight mb-4 bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent">
-          Beautiful UI Components
+        <h1 className="text-5xl font-[900] tracking-tight mb-4 bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+          Upland UI Components
         </h1>
         <p className="text-xl text-muted-foreground mb-8">
           A collection of modern, accessible and customizable UI components built with React and Tailwind CSS.
         </p>
         <div className="flex gap-4 justify-center">
           <Link href="/components">
-            <Button size="lg">Browse Components</Button>
+            <Button className="up-priamry" size="lg">Browse Components</Button>
           </Link>
           <Button variant="outline" size="lg">
             View on GitHub
