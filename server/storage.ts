@@ -39,18 +39,84 @@ export class MemStorage implements IStorage {
         ],
         examples: [
           {
+            id: "basic",
             name: "Basic",
-            code: '<Button>Click me</Button>'
+            element: "<primary-btn text='Click me'></primary-btn>",
+            code: '<primary-btn text="Primary Button" ></primary-btn>'
           },
           {
+            id: "variants",
             name: "Variants",
+            element: `<div className='flex gap-4'>
+                          <primary-btn text="Primary Button" ></primary-btn>
+                          <primary-btn text="Primary Button" btndisabled="true" ></primary-btn>
+                          <secondary-btn text="Secondary Button" ></secondary-btn>
+                          <secondary-btn text="Secondary Button" btndisabled="true" ></secondary-btn>
+                          <primary-no-border-btn text="Primary No Border Button" ></primary-no-border-btn>
+                          <primary-no-border-btn text="Primary No Border Button" btndisabled="true" ></primary-no-border-btn>
+                      </div>`,
             code: `<div className="flex gap-4">
-  <Button variant="default">Default</Button>
-  <Button variant="destructive">Destructive</Button>
-  <Button variant="outline">Outline</Button>
-  <Button variant="secondary">Secondary</Button>
-  <Button variant="ghost">Ghost</Button>
-  <Button variant="link">Link</Button>
+      <primary-btn text="Primary Button" ></primary-btn>
+      <primary-btn text="Primary Button" btndisabled="true" ></primary-btn>
+      <secondary-btn text="Secondary Button" ></secondary-btn>
+      <secondary-btn text="Secondary Button" btndisabled="true" ></secondary-btn>
+      <primary-no-border-btn text="Primary No Border Button" ></primary-no-border-btn>
+      <primary-no-border-btn text="Primary No Border Button" btndisabled="true" ></primary-no-border-btn>
+      </div>`
+          },
+          {
+            id: "withIcons",
+            name: "With Icons",
+            element: `<div className='flex gap-4'>
+                          <primary-btn text="Primary Button" plusIcon="true"></primary-btn>
+                          <primary-btn text="Primary Button" plusicon="true" btnDisabled = "true"></primary-btn>
+                      </div>`,
+            code: `<div className="flex gap-4">
+      <primary-btn text="Primary Button" plusIcon="true"></primary-btn>
+      <primary-btn text="Primary Button" plusicon="true" btnDisabled = "true"></primary-btn>
+</div>`
+          }
+        ]
+      },
+      {
+        name: "Primary-btn",
+        category: "Forms",
+        description: "A clickable button component with various styles and states.",
+        usage: "Use buttons to trigger actions or submit forms. Choose from multiple variants and sizes to match your design needs.",
+        props: [
+          { name: "variant", type: "string", description: "Visual style - default, destructive, outline, secondary, ghost, link" },
+          { name: "size", type: "string", description: "Button size - default, sm, lg, icon" },
+          { name: "asChild", type: "boolean", description: "Change the component to the HTML tag or custom component supplied" }
+        ],
+        examples: [
+          {
+            id: "basic",
+            name: "Basic",
+            element: "<primary-btn text='Click me'></primary-btn>",
+            code: '<primary-btn text="Primary Button" ></primary-btn>'
+          },
+          {
+            id: "variants",
+            name: "Variants",
+            element: `<div className='flex gap-4'>
+                          <primary-btn text="Primary Button" ></primary-btn>
+                          <primary-btn text="Primary Button" btndisabled="true" ></primary-btn>
+                      </div>`,
+            code: `<div className="flex gap-4">
+      <primary-btn text="Primary Button" ></primary-btn>
+      <primary-btn text="Primary Button" btndisabled="true" ></primary-btn>
+</div>`
+          },
+          {
+            id: "withIcons",
+            name: "With Icons",
+            element: `<div className='flex gap-4'>
+                          <primary-btn text="Primary Button" plusIcon="true"></primary-btn>
+                          <primary-btn text="Primary Button" plusicon="true" btnDisabled = "true"></primary-btn>
+                      </div>`,
+            code: `<div className="flex gap-4">
+      <primary-btn text="Primary Button" plusIcon="true"></primary-btn>
+      <primary-btn text="Primary Button" plusicon="true" btnDisabled = "true"></primary-btn>
 </div>`
           }
         ]
@@ -158,7 +224,7 @@ export class MemStorage implements IStorage {
     ];
 
     components.forEach((component) => {
-      this.components.set(this.currentId, { id: this.currentId, ...component });
+      this.components.set(this.currentId, { id: this.currentId, ...component } as Component);
       this.currentId++;
     });
   }

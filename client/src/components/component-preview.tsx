@@ -7,9 +7,11 @@ import { useToast } from "@/hooks/use-toast";
 interface ComponentPreviewProps {
   title: string;
   code: string;
+  element: string;
+  id?: string;
 }
 
-export default function ComponentPreview({ title, code }: ComponentPreviewProps) {
+export default function ComponentPreview({ title, code, element, id }: ComponentPreviewProps) {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -25,7 +27,7 @@ export default function ComponentPreview({ title, code }: ComponentPreviewProps)
   };
 
   return (
-    <Card className="overflow-hidden border-2">
+    <Card id={id} className="overflow-hidden border-2 scroll-mt-20">
       <div className="flex items-center justify-between border-b bg-muted/40 px-4 py-3">
         <div className="font-mono text-sm text-muted-foreground">
           {title}
@@ -40,9 +42,8 @@ export default function ComponentPreview({ title, code }: ComponentPreviewProps)
         </Button>
       </div>
       <div className="p-6 flex min-h-[120px] w-full items-center justify-center bg-background">
-        {/* Component preview would go here */}
         <div className="text-sm text-muted-foreground">
-          Preview not available in documentation
+          <div dangerouslySetInnerHTML={{ __html: element }} />
         </div>
       </div>
       <div className="relative">

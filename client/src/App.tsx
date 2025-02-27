@@ -7,6 +7,8 @@ import Home from "@/pages/home";
 import Components from "@/pages/components";
 import ComponentPage from "@/pages/component-page";
 import Header from "@/components/layout/header";
+import { defineCustomElements } from 'uplandui/loader'
+defineCustomElements();
 
 function Router() {
   return (

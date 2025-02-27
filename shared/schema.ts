@@ -9,7 +9,7 @@ export const components = pgTable("components", {
   category: text("category").notNull(),
   usage: text("usage").notNull(),
   props: json("props").notNull().$type<Array<{name: string, type: string, description: string}>>(),
-  examples: json("examples").notNull().$type<Array<{name: string, code: string}>>()
+  examples: json("examples").notNull().$type<Array<{name: string, code: string, element: string,id:string}>>()
 });
 
 export const insertComponentSchema = createInsertSchema(components).pick({
