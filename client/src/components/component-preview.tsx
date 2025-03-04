@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 interface ComponentPreviewProps {
   title: string;
   code: string;
-  element: string;
+  element?: string;
   id?: string;
 }
 
@@ -41,11 +41,7 @@ export default function ComponentPreview({ title, code, element, id }: Component
           <Copy className="h-4 w-4" />
         </Button>
       </div>
-      <div className="p-6 flex min-h-[120px] w-full items-center justify-center bg-background">
-        <div className="text-sm text-muted-foreground">
-          <div dangerouslySetInnerHTML={{ __html: element }} />
-        </div>
-      </div>
+     
       <div className="relative">
         <pre className="overflow-x-auto border-t bg-muted py-4 px-6">
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">

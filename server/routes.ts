@@ -17,5 +17,14 @@ export async function registerRoutes(app: Express) {
     res.json(component);
   });
 
+  app.get("/api/examples/:name", async (req, res) => {
+    const examples = await storage.getExamples(req.params.name);
+    if (!examples) {
+      res.status(404).json({ message: "Examples not found" });
+      return;
+    }
+    res.json(examples);
+  });
+
   return createServer(app);
 }

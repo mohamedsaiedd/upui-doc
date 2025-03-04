@@ -20,12 +20,18 @@ export default function ComponentPage() {
         <div className="space-y-0.5">
           <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">{component.name}</h1>
           <p className="text-lg text-muted-foreground">{component.description}</p>
+          <p className="text-lg text-muted-foreground flex gap-8 py-5">
+          {component.examples.map((example, i) => (
+              <div key={i} data-section={example.name.toLowerCase()} className="flex gap-4">
+                <div dangerouslySetInnerHTML={{ __html: example.element || "" }} />
+              </div>
+            ))}
+          </p>
         </div>
-
         <Tabs defaultValue="examples" className="space-y-6">
           <TabsList className="w-full justify-start">
             <TabsTrigger value="examples">Examples</TabsTrigger>
-            <TabsTrigger value="api">API</TabsTrigger>
+            <TabsTrigger value="api">Props</TabsTrigger>
             <TabsTrigger value="usage">Usage</TabsTrigger>
           </TabsList>
 

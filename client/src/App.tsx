@@ -8,6 +8,9 @@ import Components from "@/pages/components";
 import ComponentPage from "@/pages/component-page";
 import Header from "@/components/layout/header";
 import { defineCustomElements } from 'uplandui/loader'
+import Examples from "@/pages/example";
+import RcsExample from "./pages/rcs-example";
+
 defineCustomElements();
 
 function Router() {
@@ -19,6 +22,8 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/components" component={Components} />
           <Route path="/components/:name" component={ComponentPage} />
+          <Route path="/examples" component={Examples} />
+          <Route path="/examples/:name" component={RcsExample} />
           <Route component={NotFound} />
         </Switch>
       </main>

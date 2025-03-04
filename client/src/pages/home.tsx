@@ -21,14 +21,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 mt-16">
+      <div className="grid md:grid-cols gap-8 mt-16">
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Getting Started</h2>
+          <h2 className="text-3xl font-semibold">Getting Started</h2>
           <p className="text-muted-foreground">
             Install the dependencies and start using our components in your React application.
           </p>
           <pre className="p-4 bg-muted rounded-lg">
-            npm install @ui/components
+            npm install uplandui@latest
           </pre>
         </div>
         <div className="space-y-4">
@@ -37,11 +37,41 @@ export default function Home() {
             Import and use components directly in your React code.
           </p>
           <pre className="p-4 bg-muted rounded-lg">
-            {`import { Button } from "@ui/components"
+            {`import { defineCustomElements } from 'uplandui/loader'
+defineCustomElements();
             
 export default function App() {
-  return <Button>Click me</Button>
+  return <primary-btn text="Primary Button" ></primary-btn>
 }`}
+          </pre>
+        </div>
+      </div>
+      <div className="grid md:grid-cols gap-8 mt-16">
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold">Native Javascipt enviroment</h2>
+          <p className="text-muted-foreground">
+           use the following script to include the components in your project.
+          </p>
+          <pre className="p-4 bg-muted rounded-lg">
+            {`<script type="module"> import uplandui from https://cdn.jsdelivr.net/npm/uplandui@0.3.4/+esm </script>`}
+          </pre>
+        </div>
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold">Usage</h2>
+          <p className="text-muted-foreground">
+            Import and use components directly in your React code.
+          </p>
+          <pre className="p-4 bg-muted rounded-lg">
+            {`<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <script type="module"> import uplandui from https://cdn.jsdelivr.net/npm/uplandui@0.3.4/+esm </script>
+</head> 
+  <body>
+    <primary-btn text="Primary Button" ></primary-btn>
+  </body>
+</html>
+            `}
           </pre>
         </div>
       </div>
