@@ -42,9 +42,9 @@ export class MemStorage implements IStorage {
         description: "A clickable button component with various styles and states.",
         usage: "Use buttons to trigger actions or submit forms. Choose from multiple variants and sizes to match your design needs.",
         props: [
-          { name: "variant", type: "string", description: "Visual style - default, destructive, outline, secondary, ghost, link" },
-          { name: "size", type: "string", description: "Button size - default, sm, lg, icon" },
-          { name: "asChild", type: "boolean", description: "Change the component to the HTML tag or custom component supplied" }
+          { name: "text", type: "string", description: "Text for the button" },
+          { name: "btnDisabled", type: "boolean", description: "Disable the button" },
+          { name: "plusIcon", type: "boolean", description: "Add a plus icon to the button or any other icon" },
         ],
         examples: [
           {
@@ -87,19 +87,35 @@ export class MemStorage implements IStorage {
         description: "Displays a form input field ,checkbox and radio buttons with various states and styles.",
         usage: "Use input fields to collect user data in forms. Supports different types and states.",
         props: [
+          { name: "readonly", type: "boolean", description: "Make the input field readonly" },
+          { name: "inputId", type: "string", description: "Id for the input field" },
+          { name: "name", type: "string", description: "Name for the input field" },
+          { name: "type", type: "string", description: "Type of the input field" },
+          { name: "placeholder", type: "string", description: "Placeholder for the input field" },
           { name: "labeltitle", type: "string", description: "Label title for checkbox or radio button" },
           { name: "labelfor", type: "string", description: "Label for checkbox or radio button" },
           { name: "checkboxdisabled", type: "boolean", description: "Disable the checkbox" },
-          { name: "radioDisabled", type: "boolean", description: "Disable the radio button" }
+          { name: "radioDisabled", type: "boolean", description: "Disable the radio button" },
+
         ],
         examples: [
           {
             id: "Input",
             name: "Input",
-            code: '<Input type="text" placeholder="Enter your name" />',
+            code: `<upui-input label="Name" type="text" inputId="name" name="user[name]"placeholder="Enter your name"></upui-input>
+<upui-input label="Email" type="email" inputId="email" name="user[email]" placeholder="Enter your email"></upui-input>
+<upui-input label="Password" type="password" inputId="password" name="user[password]" placeholder="Enter your password"></upui-input>
+<upui-input label="Date of Birth" type="date" inputId="dob"  name="user[dob]"></upui-input>
+<upui-input label="Disabled Input" type="text" inputId="disabled" name="user[disabled]" readonly="true" placeholder="Enter your name"></upui-input>`,
             element: `
             <div class='flex gap-4'>
-              <Input type="text" placeholder="Enter your name" />
+            <div class=''>
+              <upui-input label="Name" type="text" inputId="name" name="user[name]"placeholder="Enter your name"></upui-input>
+              <upui-input label="Email" type="email" inputId="email" name="user[email]" placeholder="Enter your email"></upui-input>
+              <upui-input label="Password" type="password" inputId="password" name="user[password]" placeholder="Enter your password"></upui-input>
+              <upui-input label="Date of Birth" type="date" inputId="dob"  name="user[dob]"></upui-input>
+              <upui-input label="Disabled Input" type="text" inputId="disabled" name="user[disabled]" readonly="true" placeholder="Enter your name"></upui-input>
+            </div>
               <div class=''>
               <checkbox-input labeltitle="Checkbox" labelfor="Checkbox Input"></checkbox-input>
               <checkbox-input labeltitle="Disabled Checkbox" labelfor="Checkbox Input" checkboxdisabled = "true"></checkbox-input>
