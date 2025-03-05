@@ -6,10 +6,7 @@ export default function Nav() {
       <Link href="/components">
         <a className="text-sm font-medium hover:text-primary">Components</a>
       </Link>
-      <Link href="/docs">
-        <a className="text-sm font-medium hover:text-primary">Documentation</a>
-      </Link>
-      <Link href="/examples">
+      <Link href="/examples/rcs">
         <a className="text-sm font-medium hover:text-primary">Examples</a>
       </Link>
     </nav>
