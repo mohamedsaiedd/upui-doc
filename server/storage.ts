@@ -82,25 +82,48 @@ export class MemStorage implements IStorage {
         ]
       },
       {
-        name: "Input",
+        name: "Form Control",
         category: "Forms",
-        description: "Displays a form input field with various states and styles.",
+        description: "Displays a form input field ,checkbox and radio buttons with various states and styles.",
         usage: "Use input fields to collect user data in forms. Supports different types and states.",
         props: [
-          { name: "type", type: "string", description: "HTML input type - text, password, email, etc." },
-          { name: "placeholder", type: "string", description: "Placeholder text" },
-          { name: "disabled", type: "boolean", description: "Disable the input" }
+          { name: "labeltitle", type: "string", description: "Label title for checkbox or radio button" },
+          { name: "labelfor", type: "string", description: "Label for checkbox or radio button" },
+          { name: "checkboxdisabled", type: "boolean", description: "Disable the checkbox" },
+          { name: "radioDisabled", type: "boolean", description: "Disable the radio button" }
         ],
         examples: [
           {
-            id: "basic",
-            name: "Basic",
-            code: '<Input type="text" placeholder="Enter your name" />'
+            id: "Input",
+            name: "Input",
+            code: '<Input type="text" placeholder="Enter your name" />',
+            element: `
+            <div class='flex gap-4'>
+              <Input type="text" placeholder="Enter your name" />
+              <div class=''>
+              <checkbox-input labeltitle="Checkbox" labelfor="Checkbox Input"></checkbox-input>
+              <checkbox-input labeltitle="Disabled Checkbox" labelfor="Checkbox Input" checkboxdisabled = "true"></checkbox-input>
+                </div>
+              <div class=''>
+              <radio-input labeltitle="Radio" labelfor="Radio Input"></radio-input>
+              <radio-input labeltitle="Disabled Radio" labelfor="Radio Input" radioDisabled = "true"></radio-input>
+              </div>
+            </div>
+            `
           },
           {
-            id: "disabled",
-            name: "Disabled",
-            code: '<Input disabled type="text" placeholder="Disabled input" />'
+            id: "Checkbox",
+            name: "Checkbox",
+            code: `<checkbox-input labeltitle="Checkbox" labelfor="Checkbox Input"></checkbox-input>
+<checkbox-input labeltitle="Checkbox" labelfor="Checkbox Input" checkboxdisabled = "true"></checkbox-input>
+              `
+          },
+          {
+            id: "Radio",
+            name: "Radio",
+            code: `<radio-input labeltitle="Radio" labelfor="Radio Input"></radio-input>
+<radio-input labeltitle="Radio" labelfor="Radio Input" radioDisabled = "true"></radio-input>
+            `
           }
         ]
       },

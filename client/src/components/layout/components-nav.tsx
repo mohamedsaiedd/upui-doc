@@ -98,24 +98,7 @@ export default function ComponentsNav() {
                             </a>
                           );
                         })}
-                        <a
-                          href="#api"
-                          className={cn(
-                            "flex w-full items-center rounded-md px-2 py-1 hover:bg-muted transition-colors",
-                            activeSection === "api"
-                              ? "bg-muted font-medium text-primary"
-                              : "text-muted-foreground hover:text-foreground"
-                          )}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById('api')?.scrollIntoView({
-                              behavior: 'smooth'
-                            });
-                            setActiveSection("api");
-                          }}
-                        >
-                          API Reference
-                        </a>
+                        
                       </div>
                     )}
                   </div>
