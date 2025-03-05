@@ -177,51 +177,78 @@ export class MemStorage implements IStorage {
         description: "Displays a dropdown list of options for users to pick from.",
         usage: "Use select when you want users to pick from a predefined list of options.",
         props: [
-          { name: "defaultValue", type: "string", description: "The default selected value" },
-          { name: "onValueChange", type: "function", description: "Called when the value changes" }
+          { name: "dropdowndisabled", type: "boolean", description: "Disable the dropdown" },
+          { name: "label", type: "string", description: "Label for the dropdown" },
         ],
         examples: [
           {
             id: "basic",
-            name: "Basic",
-            code: `<Select>
-  <SelectTrigger>
-    <SelectValue placeholder="Select a fruit" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="apple">Apple</SelectItem>
-    <SelectItem value="banana">Banana</SelectItem>
-    <SelectItem value="orange">Orange</SelectItem>
-  </SelectContent>
-</Select>`
+            name: "Basic Dropdown",
+            element:`
+            <dropdown-list label="Label 1">
+      <li  class="upui-dropdown-item">Item 1</li>
+      <li  class="upui-dropdown-item">Item 2</li>
+      <li  class="upui-dropdown-item">Item 3</li>
+    </dropdown-list>
+    <dropdown-list label="Label 2" dropdowndisabled="true"></dropdown-list>
+    `,
+            code: `<dropdown-list label="Label 1">
+  <li  class="upui-dropdown-item">Item 1</li>
+  <li  class="upui-dropdown-item">Item 2</li>
+  <li  class="upui-dropdown-item">Item 3</li>
+</dropdown-list>`
+          },
+          {
+            id: "disabled",
+            name: "Disabled",
+          
+            code: `<dropdown-list label="Label 2" dropdowndisabled="true"></dropdown-list>`
           }
         ]
       },
       {
-        name: "Card",
+        name: "Collapsed Menu",
         category: "Layout",
-        description: "A container component for grouping related content.",
-        usage: "Use cards to group related information and actions. Perfect for displaying content in a grid or list.",
+        description: "A collapsible menu component for grouping related content.",
+        usage: "Use collapsed menu to group related content and actions. Perfect for displaying content in a grid or list.",
         props: [
           { name: "className", type: "string", description: "Additional CSS classes" },
           { name: "asChild", type: "boolean", description: "Change the component to the HTML tag or custom component supplied" }
         ],
         examples: [
           {
-            id: "basic",
-            name: "Basic",
-            code: `<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Card Content</p>
-  </CardContent>
-  <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter>
-</Card>`
+            id: "primary",
+            name: "Primary Collapsed Menu",
+            element:`
+            <collapsed-menu header="Collapse Menu Header">
+      <div slot="collapse-body">
+        <h3>Welcome to UpUi Collapse Menu</h3>
+        <p>Description Goes here !!</p>
+      </div>
+    </collapsed-menu>
+    <collapsed-menu header="Collapse Menu Disabled" collapsedisabled="true">
+      <div slot="collapse-body">
+        <h3>Welcome to UpUi Collapse Menu</h3>
+        <p>Description Goes here !!</p>
+      </div>
+    </collapsed-menu>
+            `,
+            code: `<collapsed-menu header="Collapse Menu Header">
+  <div slot="collapse-body">
+    <h3>Welcome to UpUi Collapse Menu</h3>
+    <p>Description Goes here !!</p>
+  </div>
+</collapsed-menu>`
+          },
+          {
+            id: "disabled",
+            name: "Disabled Collapsed Menu",
+            code: `<collapsed-menu header="Collapse Menu Disabled" collapsedisabled="true">
+  <div slot="collapse-body">
+    <h3>Welcome to UpUi Collapse Menu</h3>
+    <p>Description Goes here !!</p>
+  </div>
+</collapsed-menu>`
           }
         ]
       }
