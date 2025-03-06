@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-[900] tracking-tight mb-4 bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-          Upland UI Components
-        </h1>
+        <h1 className="text-5xl font-[900] h-20 tracking-tight mb-4 bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+       Upland Design System - UDS 2.1 
+                  </h1>
         <p className="text-xl text-muted-foreground mb-8">
           A collection of modern, accessible and customizable UI components built with React and Tailwind CSS.
         </p>
@@ -53,7 +53,7 @@ export default function App() {
            use the following script to include the components in your project.
           </p>
           <pre className="p-4 bg-muted rounded-lg">
-            {`<script type="module"> import uplandui from https://cdn.jsdelivr.net/npm/uplandui@0.3.4/+esm </script>`}
+            {`<script type="module" src="https://cdn.jsdelivr.net/npm/uplandui@0.5.3/dist/upui/upui.esm.js"></script>`}
           </pre>
         </div>
         <div className="space-y-4">
@@ -65,7 +65,7 @@ export default function App() {
             {`<!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>
-    <script type="module"> import uplandui from https://cdn.jsdelivr.net/npm/uplandui@0.3.4/+esm </script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/uplandui@0.5.3/dist/upui/upui.esm.js"></script>
 </head> 
   <body>
     <primary-btn text="Primary Button" ></primary-btn>
